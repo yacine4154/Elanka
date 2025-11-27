@@ -6,7 +6,8 @@
     --accent-color: #e94560;
     --second-hand-color: #e94560;
     --minute-hand-color: #0f3460;
-    --hour-hand-color: #fff;
+    --hour-hand-color: #000;
+    /* Changed to black for visibility */
 }
 
 * {
@@ -189,6 +190,8 @@ body {
     transform-origin: bottom center;
     border-radius: 10px;
     z-index: 10;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    /* Added shadow for visibility */
 }
 
 .hour-hand {
