@@ -1,8 +1,14 @@
 function setClock() {
     const now = new Date();
-    const seconds = now.getSeconds();
-    const minutes = now.getMinutes();
-    const hours = now.getHours();
+
+    // Force Algiers time (UTC+1)
+    const options = { timeZone: 'Africa/Algiers', hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+    const [h, m, s] = timeString.split(':').map(Number);
+
+    const seconds = s;
+    const minutes = m;
+    const hours = h;
 
     const secondDegrees = ((seconds / 60) * 360);
     const minuteDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6);
