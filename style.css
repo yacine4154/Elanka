@@ -6,8 +6,7 @@
     --accent-color: #e94560;
     --second-hand-color: #e94560;
     --minute-hand-color: #0f3460;
-    --hour-hand-color: #000;
-    /* Changed to black for visibility */
+    --hour-hand-color: #000; /* Black for visibility */
 }
 
 * {
@@ -55,13 +54,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
+    width: 250px; /* Resized to fit center */
     height: 250px;
     border-radius: 50%;
     overflow: hidden;
     z-index: 1;
     border: 4px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .center-image {
@@ -82,105 +81,78 @@ body {
 }
 
 /* Positioning numbers 1-12 */
-.number-1 {
-    transform: rotate(30deg);
-}
-
-.number-2 {
-    transform: rotate(60deg);
-}
-
-.number-3 {
-    transform: rotate(90deg);
-}
-
-.number-4 {
-    transform: rotate(120deg);
-}
-
-.number-5 {
-    transform: rotate(150deg);
-}
-
-.number-6 {
-    transform: rotate(180deg);
-}
-
-.number-7 {
-    transform: rotate(210deg);
-}
-
-.number-8 {
-    transform: rotate(240deg);
-}
-
-.number-9 {
-    transform: rotate(270deg);
-}
-
-.number-10 {
-    transform: rotate(300deg);
-}
-
-.number-11 {
-    transform: rotate(330deg);
-}
-
-.number-12 {
-    transform: rotate(0deg);
-}
+.number-1 { transform: rotate(30deg); }
+.number-2 { transform: rotate(60deg); }
+.number-3 { transform: rotate(90deg); }
+.number-4 { transform: rotate(120deg); }
+.number-5 { transform: rotate(150deg); }
+.number-6 { transform: rotate(180deg); }
+.number-7 { transform: rotate(210deg); }
+.number-8 { transform: rotate(240deg); }
+.number-9 { transform: rotate(270deg); }
+.number-10 { transform: rotate(300deg); }
+.number-11 { transform: rotate(330deg); }
+.number-12 { transform: rotate(0deg); }
 
 .formula {
     display: inline-block;
     /* Counter-rotate to keep text upright */
 }
 
-.number-1 .formula {
-    transform: rotate(-30deg);
+.number-1 .formula { transform: rotate(-30deg); }
+.number-2 .formula { transform: rotate(-60deg); }
+.number-3 .formula { transform: rotate(-90deg); }
+.number-4 .formula { transform: rotate(-120deg); }
+.number-5 .formula { transform: rotate(-150deg); }
+.number-6 .formula { transform: rotate(-180deg); }
+.number-7 .formula { transform: rotate(-210deg); }
+.number-8 .formula { transform: rotate(-240deg); }
+.number-9 .formula { transform: rotate(-270deg); }
+.number-10 .formula { transform: rotate(-300deg); }
+.number-11 .formula { transform: rotate(-330deg); }
+.number-12 .formula { transform: rotate(0deg); }
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Border for contrast */
 }
 
-.number-2 .formula {
-    transform: rotate(-60deg);
+.hour-hand {
+    width: 8px;
+    height: 160px; /* Long enough to be seen */
+    background: var(--hour-hand-color);
+    margin-left: -4px;
 }
 
-.number-3 .formula {
-    transform: rotate(-90deg);
+.minute-hand {
+    width: 6px;
+    height: 210px;
+    background: var(--minute-hand-color);
+    margin-left: -3px;
 }
 
-.number-4 .formula {
-    transform: rotate(-120deg);
+.second-hand {
+    width: 2px;
+    height: 230px;
+    background: var(--second-hand-color);
+    margin-left: -1px;
+    z-index: 11;
 }
 
-.number-5 .formula {
-    transform: rotate(-150deg);
-}
-
-.number-6 .formula {
-    transform: rotate(-180deg);
-}
-
-.number-7 .formula {
-    transform: rotate(-210deg);
-}
-
-.number-8 .formula {
-    transform: rotate(-240deg);
-}
-
-.number-9 .formula {
-    transform: rotate(-270deg);
-}
-
-.number-10 .formula {
-    transform: rotate(-300deg);
-}
-
-.number-11 .formula {
-    transform: rotate(-330deg);
+.center-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
     background: var(--accent-color);
     border-radius: 50%;
     z-index: 12;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 600px) {
@@ -188,25 +160,14 @@ body {
         width: 350px;
         height: 350px;
     }
-
     .number {
         font-size: 1.2rem;
     }
-
     .center-image-container {
         width: 175px;
         height: 175px;
     }
-
-    .hour-hand {
-        height: 80px;
-    }
-
-    .minute-hand {
-        height: 120px;
-    }
-
-    .second-hand {
-        height: 140px;
-    }
+    .hour-hand { height: 100px; }
+    .minute-hand { height: 140px; }
+    .second-hand { height: 150px; }
 }

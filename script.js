@@ -1,27 +1,26 @@
 function setClock() {
     const now = new Date();
-
-    // Force Algiers time (UTC+1)
-    const options = { timeZone: 'Africa/Algiers', hour12: false, hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
-    const [h, m, s] = timeString.split(':').map(Number);
-
-    const seconds = s;
-    const minutes = m;
-    const hours = h;
+    
+    // Algeria is UTC+1 and does not observe DST.
+    // We use UTC methods to avoid local system time issues and hardcode the +1 offset.
+    const seconds = now.getUTCSeconds();
+    const minutes = now.getUTCMinutes();
+    const hours = (now.getUTCHours() + 1) % 24;
 
     const secondDegrees = ((seconds / 60) * 360);
-    const minuteDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6);
-    const hourDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30);
+    const minuteDegrees = ((minutes / 60) * 360) + ((seconds/60)*6);
+    const hourDegrees = ((hours / 12) * 360) + ((minutes/60)*30);
 
     const secondHand = document.getElementById('second-hand');
     const minuteHand = document.getElementById('minute-hand');
     const hourHand = document.getElementById('hour-hand');
 
-    secondHand.style.transform = `rotate(${secondDegrees}deg)`;
-    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+    if (secondHand) secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+    if (minuteHand) minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+    if (hourHand) hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 
+// Update every second
 setInterval(setClock, 1000);
-setClock(); // Initial call
+// Run immediately
+setClock();
