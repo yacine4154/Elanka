@@ -177,50 +177,6 @@ body {
 
 .number-11 .formula {
     transform: rotate(-330deg);
-}
-
-.number-12 .formula {
-    transform: rotate(0deg);
-}
-
-.hand {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom center;
-    border-radius: 10px;
-    z-index: 10;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    /* Added shadow for visibility */
-}
-
-.hour-hand {
-    width: 8px;
-    height: 120px;
-    background: var(--hour-hand-color);
-    margin-left: -4px;
-    /* Center the hand */
-}
-
-.minute-hand {
-    width: 6px;
-    height: 180px;
-    background: var(--minute-hand-color);
-    margin-left: -3px;
-}
-
-.second-hand {
-    width: 2px;
-    height: 200px;
-    background: var(--second-hand-color);
-    margin-left: -1px;
-    z-index: 11;
-}
-
-.center-dot {
-    position: absolute;
-    width: 16px;
-    height: 16px;
     background: var(--accent-color);
     border-radius: 50%;
     z-index: 12;
